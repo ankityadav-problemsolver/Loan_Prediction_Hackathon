@@ -1,6 +1,7 @@
-# Loan_Prediction_Hackathon
+# Loan_Prediction_Hackathon 📊👥
 
 # Overview:
+
 1. The objective of this project is to build a machine learning model to predict whether a loan application will be approved or not.
    
 2.It uses historical loan application data with various personal, financial, and property-related features.
