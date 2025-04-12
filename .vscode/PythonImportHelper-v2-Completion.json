@@ -1,0 +1,252 @@
+[
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "st_lottie",
+        "importPath": "streamlit_lottie",
+        "description": "streamlit_lottie",
+        "isExtraImport": true,
+        "detail": "streamlit_lottie",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "seaborn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "seaborn",
+        "description": "seaborn",
+        "detail": "seaborn",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "StandardScaler",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "OneHotEncoder",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "ColumnTransformer",
+        "importPath": "sklearn.compose",
+        "description": "sklearn.compose",
+        "isExtraImport": true,
+        "detail": "sklearn.compose",
+        "documentation": {}
+    },
+    {
+        "label": "Pipeline",
+        "importPath": "sklearn.pipeline",
+        "description": "sklearn.pipeline",
+        "isExtraImport": true,
+        "detail": "sklearn.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "SimpleImputer",
+        "importPath": "sklearn.impute",
+        "description": "sklearn.impute",
+        "isExtraImport": true,
+        "detail": "sklearn.impute",
+        "documentation": {}
+    },
+    {
+        "label": "RandomForestClassifier",
+        "importPath": "sklearn.ensemble",
+        "description": "sklearn.ensemble",
+        "isExtraImport": true,
+        "detail": "sklearn.ensemble",
+        "documentation": {}
+    },
+    {
+        "label": "classification_report",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "accuracy_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "joblib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "joblib",
+        "description": "joblib",
+        "detail": "joblib",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "load_lottie_url",
+        "kind": 2,
+        "importPath": "pages.about",
+        "description": "pages.about",
+        "peekOfCode": "def load_lottie_url(url):\n    r = requests.get(url)\n    if r.status_code != 200:\n        return None\n    return r.json()\n# Page config\nst.set_page_config(page_title=\"About | Loan Prediction App\", layout=\"centered\")\n# Title and subtitle\nst.markdown(\"\"\"\n<style>",
+        "detail": "pages.about",
+        "documentation": {}
+    },
+    {
+        "label": "load_data",
+        "kind": 2,
+        "importPath": "loan_app",
+        "description": "loan_app",
+        "peekOfCode": "def load_data():\n    df = pd.read_csv('data/loan_data_set.csv')\n    df['Income_Group'] = pd.cut(df['ApplicantIncome'],\n                                bins=[0, 2500, 5000, 7500, 10000, 20000, df['ApplicantIncome'].max()],\n                                labels=['<2.5k', '2.5k–5k', '5k–7.5k', '7.5k–10k', '10k–20k', '20k+'])\n    # Clean column names\n    df.columns = df.columns.str.strip()\n    # Convert Loan_Status to binary\n    df['Loan_Status'] = df['Loan_Status'].map({'Y': 1, 'N': 0})\n    # Clean Dependents column",
+        "detail": "loan_app",
+        "documentation": {}
+    },
+    {
+        "label": "feature_engineering",
+        "kind": 2,
+        "importPath": "loan_app",
+        "description": "loan_app",
+        "peekOfCode": "def feature_engineering(df):\n    # Total income\n    df['TotalIncome'] = df['ApplicantIncome'] + df['CoapplicantIncome']\n    # EMI (assuming 8.5% interest rate)\n    df['Loan_Amount_Term'] = df['Loan_Amount_Term'].fillna(360)\n    df['LoanAmount'] = df['LoanAmount'].fillna(df['LoanAmount'].median())\n    df['EMI'] = df['LoanAmount'] * 0.0085 * (1 + 0.0085)**df['Loan_Amount_Term'] / ((1 + 0.0085)**df['Loan_Amount_Term'] - 1)\n    # Income to EMI ratio\n    df['Income_to_EMI'] = df['TotalIncome'] / (df['EMI'] + 1e-6)\n    # Loan amount to income ratio",
+        "detail": "loan_app",
+        "documentation": {}
+    },
+    {
+        "label": "train_model",
+        "kind": 2,
+        "importPath": "loan_app",
+        "description": "loan_app",
+        "peekOfCode": "def train_model(df):\n    # Features and target\n    X = df.drop(['Loan_ID', 'Loan_Status'], axis=1)\n    y = df['Loan_Status']\n    # Define columns\n    num_cols = ['ApplicantIncome', 'CoapplicantIncome', 'LoanAmount', 'Loan_Amount_Term', \n                'TotalIncome', 'EMI', 'Income_to_EMI', 'Loan_to_Income']\n    cat_cols = ['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed', \n                'Credit_History', 'Property_Area']\n    # Preprocessing pipeline",
+        "detail": "loan_app",
+        "documentation": {}
+    },
+    {
+        "label": "save_model",
+        "kind": 2,
+        "importPath": "loan_app",
+        "description": "loan_app",
+        "peekOfCode": "def save_model(model, filename='loan_model.pkl'):\n    joblib.dump(model, filename)\ndef load_model(filename='loan_model.pkl'):\n    return joblib.load(filename)\n# Streamlit app\ndef run_streamlit_app(model):\n    st.set_page_config(page_title=\"Loan Approval Prediction\", layout=\"wide\")\n    if st.button(\"⬅️ Back to Home\"):\n        st.session_state.page = \"home\"\n        st.stop()",
+        "detail": "loan_app",
+        "documentation": {}
+    },
+    {
+        "label": "load_model",
+        "kind": 2,
+        "importPath": "loan_app",
+        "description": "loan_app",
+        "peekOfCode": "def load_model(filename='loan_model.pkl'):\n    return joblib.load(filename)\n# Streamlit app\ndef run_streamlit_app(model):\n    st.set_page_config(page_title=\"Loan Approval Prediction\", layout=\"wide\")\n    if st.button(\"⬅️ Back to Home\"):\n        st.session_state.page = \"home\"\n        st.stop()\n    # Custom CSS\n    st.markdown(\"\"\"",
+        "detail": "loan_app",
+        "documentation": {}
+    },
+    {
+        "label": "run_streamlit_app",
+        "kind": 2,
+        "importPath": "loan_app",
+        "description": "loan_app",
+        "peekOfCode": "def run_streamlit_app(model):\n    st.set_page_config(page_title=\"Loan Approval Prediction\", layout=\"wide\")\n    if st.button(\"⬅️ Back to Home\"):\n        st.session_state.page = \"home\"\n        st.stop()\n    # Custom CSS\n    st.markdown(\"\"\"\n    <style>\n    .main {\n        background-color: #f5f5f5;",
+        "detail": "loan_app",
+        "documentation": {}
+    },
+    {
+        "label": "get_ai_response",
+        "kind": 2,
+        "importPath": "loan_app",
+        "description": "loan_app",
+        "peekOfCode": "def get_ai_response(prompt):\n    try:\n        # In a real app, you would use your OpenAI API key\n        # openai.api_key = st.secrets[\"openai_key\"]\n        # For demo purposes, we'll use a simplified response\n        simplified_responses = {\n            \"approved\": \"\"\"\n            - Make sure to budget carefully to accommodate your EMI payments each month\n            - Consider setting up automatic payments to avoid missing due dates\n            - Maintain or improve your credit score by paying all bills on time",
+        "detail": "loan_app",
+        "documentation": {}
+    },
+    {
+        "label": "show_front_page",
+        "kind": 2,
+        "importPath": "loan_app",
+        "description": "loan_app",
+        "peekOfCode": "def show_front_page():\n    st.set_page_config(page_title=\"Loan App Home\", layout=\"centered\")\n    st.markdown(\"\"\"\n        <style>\n        .big-font {\n            font-size:50px !important;\n            font-weight: bold;\n            text-align: center;\n        }\n        .centered {",
+        "detail": "loan_app",
+        "documentation": {}
+    },
+    {
+        "label": "show_dashboard",
+        "kind": 2,
+        "importPath": "loan_app",
+        "description": "loan_app",
+        "peekOfCode": "def show_dashboard(df, model):\n    st.markdown('<h1 style=\"text-align:center;\">📊 Loan Insights Dashboard</h1>', unsafe_allow_html=True)\n    st.markdown(\"-----\")\n    col1, col2 = st.columns(2)\n    with col1:\n        st.markdown(\"#### 🥧 Loan Approval Distribution\")\n        status_counts = df['Loan_Status'].replace({1: 'Approved', 0: 'Not Approved'}).value_counts()\n        # Define custom colors\n        colors = ['#20B2AA', '#FF7F50']  # dark green for approved, tomato red for not approved\n    # Create pie chart",
+        "detail": "loan_app",
+        "documentation": {}
+    },
+    {
+        "label": "image",
+        "kind": 5,
+        "importPath": "loan_app",
+        "description": "loan_app",
+        "peekOfCode": "image = Image.open(\"Ai-image.jpg\")\nst.cache_resource\ndef show_front_page():\n    st.set_page_config(page_title=\"Loan App Home\", layout=\"centered\")\n    st.markdown(\"\"\"\n        <style>\n        .big-font {\n            font-size:50px !important;\n            font-weight: bold;\n            text-align: center;",
+        "detail": "loan_app",
+        "documentation": {}
+    }
+]
