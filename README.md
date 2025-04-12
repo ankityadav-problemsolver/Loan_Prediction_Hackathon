@@ -132,9 +132,8 @@ Contributions are welcome! 🙌
 
 ## 🙋‍♂️ Authors
 
-- **Ankit Yadav** - [LinkedIn](https://www.linkedin.com/in/ankityadav-datasolver/)
-- **Your Teammates** - 
-- Shiva-
+- **Ankit Yadav** - [LinkedIn](https://www.linkedin.com/in/ankityadav-datasolver/) 
+- Siva Maruthi-
 - Shriharini-
 
 Made with ❤️ using Python and Machine Learning.
