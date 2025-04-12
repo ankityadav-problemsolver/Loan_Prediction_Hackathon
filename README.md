@@ -68,7 +68,7 @@ The ML pipeline includes preprocessing (encoding, handling missing values), mode
 
 | Home Page | Prediction |
 |-----------|------------|
-| ![Home]() | ![Prediction](https://via.placeholder.com/400x200?text=Prediction+Result) |
+| ![Home](assests/home.png) | ![Prediction](assests/prediction.png) |
 
 *(Add actual screenshots by uploading them to the repo or using direct links.)*
 
