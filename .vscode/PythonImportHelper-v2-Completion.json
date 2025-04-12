@@ -9,14 +9,6 @@
         "documentation": {}
     },
     {
-        "label": "st_lottie",
-        "importPath": "streamlit_lottie",
-        "description": "streamlit_lottie",
-        "isExtraImport": true,
-        "detail": "streamlit_lottie",
-        "documentation": {}
-    },
-    {
         "label": "requests",
         "kind": 6,
         "isExtraImport": true,

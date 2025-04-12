@@ -1,13 +1,7 @@
 import streamlit as st
-from streamlit_lottie import st_lottie
+
 import requests
 
-# # Function to load Lottie animation from URL
-# def load_lottie_url(url):
-#     r = requests.get(url)
-#     if r.status_code != 200:
-#         return None
-#     return r.json()
 
 
 # Page config
