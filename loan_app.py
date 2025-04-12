@@ -345,7 +345,6 @@ def get_ai_response(prompt):
 
 # # Interactive front page
 image = Image.open("Ai-image.jpg")
-st.cache_resource
 def show_front_page():
     st.set_page_config(page_title="Loan App Home", layout="centered")
 
@@ -397,7 +396,6 @@ def show_front_page():
     # col1, col2, col3 = st.columns([1, 2, 1])
     # with col2:
     #     st.pyplot(fig)
-st.cache_resource
 def show_dashboard(df, model):
     st.markdown('<h1 style="text-align:center;">📊 Loan Insights Dashboard</h1>', unsafe_allow_html=True)
     st.markdown("-----")

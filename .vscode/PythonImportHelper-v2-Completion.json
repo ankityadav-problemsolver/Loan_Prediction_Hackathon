@@ -245,7 +245,7 @@
         "kind": 5,
         "importPath": "loan_app",
         "description": "loan_app",
-        "peekOfCode": "image = Image.open(\"Ai-image.jpg\")\nst.cache_resource\ndef show_front_page():\n    st.set_page_config(page_title=\"Loan App Home\", layout=\"centered\")\n    st.markdown(\"\"\"\n        <style>\n        .big-font {\n            font-size:50px !important;\n            font-weight: bold;\n            text-align: center;",
+        "peekOfCode": "image = Image.open(\"Ai-image.jpg\")\ndef show_front_page():\n    st.set_page_config(page_title=\"Loan App Home\", layout=\"centered\")\n    st.markdown(\"\"\"\n        <style>\n        .big-font {\n            font-size:50px !important;\n            font-weight: bold;\n            text-align: center;\n        }",
         "detail": "loan_app",
         "documentation": {}
     }
