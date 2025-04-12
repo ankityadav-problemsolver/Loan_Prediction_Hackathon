@@ -44,15 +44,6 @@
         "documentation": {}
     },
     {
-        "label": "matplotlib.pyplot",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "matplotlib.pyplot",
-        "description": "matplotlib.pyplot",
-        "detail": "matplotlib.pyplot",
-        "documentation": {}
-    },
-    {
         "label": "seaborn",
         "kind": 6,
         "isExtraImport": true,
