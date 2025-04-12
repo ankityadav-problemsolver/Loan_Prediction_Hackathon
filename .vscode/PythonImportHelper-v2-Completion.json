@@ -151,15 +151,6 @@
         "documentation": {}
     },
     {
-        "label": "load_lottie_url",
-        "kind": 2,
-        "importPath": "pages.about",
-        "description": "pages.about",
-        "peekOfCode": "def load_lottie_url(url):\n    r = requests.get(url)\n    if r.status_code != 200:\n        return None\n    return r.json()\n# Page config\nst.set_page_config(page_title=\"About | Loan Prediction App\", layout=\"centered\")\n# Title and subtitle\nst.markdown(\"\"\"\n<style>",
-        "detail": "pages.about",
-        "documentation": {}
-    },
-    {
         "label": "load_data",
         "kind": 2,
         "importPath": "loan_app",
