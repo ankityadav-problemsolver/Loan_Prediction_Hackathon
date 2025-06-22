@@ -266,7 +266,7 @@ def run_streamlit_app(model):
                       help="Lower is better (recommended < 5)")
         
         with col3:
-            st.metric("Total Income", f"${input_data['TotalIncome'].values[0]:,.2f}")
+            st.metric("Total Income", f"₹{input_data['TotalIncome'].values[0]:,.2f}")
     
     # AI Chatbot section
     st.markdown("---")
